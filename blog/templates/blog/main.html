@@ -1,0 +1,122 @@
+<!--메인 페이지, 작성한 글들 보이게-->
+{% extends 'blog/base.html' %}
+{% load static %}
+
+<body>
+        {% block nav %}
+        <!-- Masthead-->
+        <header class="masthead text-white text-center">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 mx-auto"><h1 class="mb-5">𝐏𝐨𝐫𝐭𝐟𝐨𝐥𝐢𝐨 + 𝐑𝐞𝐩𝐫𝐞𝐬𝐞𝐧𝐭</h1></div>
+                    <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+                        <form>
+                            <div class="form-row">
+                                <div class="col-13 col-md-4 lookcen"><a href="#" class="btn btn-block btn-lg btn-primary">𝐏𝐎:𝐑𝐄 둘러보기</a></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Icons Grid-->
+        <div class="whole">
+        <section>
+            <article>
+                <h3 style="font-weight: bold; padding: 1.25rem 0 0 1.5rem;">모아보기</h3>
+                <p style="font-size: 15px; padding-left: 2rem; margin-top: -15px;">어떤 글들이 있을까?</p>
+            </article>
+        </section>
+        <div class="coverup">
+            {% for blog in blogs %}        
+        <section class="features-icons bg-light text-center">
+            <div class="container">
+                    <div>
+                        <h3>𝑻𝒊𝒕𝒍𝒆</h3> 
+                            {{ blogs.title }}</br>     
+                            <p>𝑊𝑟𝑖𝑡𝑒𝑟</p>
+                        {{blog.writer}} </br> 
+                        <p>작성 일자 및 시간 : </p>
+                            {{ blogs.pub_date }}</br>
+                            <h4>𝑇𝑒𝑥𝑡</h4>
+                            {{ blogs.summary }}
+                    </hr style="color: black">
+                </div>
+                    <a href="{% url 'detail' blog.id %}">자세히 보기</a> 
+            <hr>           
+        </div>
+        </section>
+        {% endfor %}
+    </div>
+        <!-- Image Showcases-->
+        <!-- Testimonials-->
+        <section class="testimonials text-center bg-light">
+            <div class="container">
+                <h2 class="mb-5">포트폴리오 팀원 소개</h2>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                            <img class="img-fluid rounded-circle mb-3" src="{% static 'blog/img/marge.jpg' %}" alt="..." />
+                            <h5>이지선</h5>
+                            <p class="font-weight-light mb-0">멋쟁이 사자처럼 9기</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                            <img class="img-fluid rounded-circle mb-3" src="{% static 'blog/img/homer.jpg' %}" alt="..." />
+                            <h5>박다은</h5>
+                            <p class="font-weight-light mb-0">멋쟁이 사자처럼 9기</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                            <img class="img-fluid rounded-circle mb-3" src="{% static 'blog/img/lisa.jpg' %}" alt="..." />
+                            <h5>주영빈</h5>
+                            <p class="font-weight-light mb-0">멋쟁이 사자처럼 9기</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                            <img class="img-fluid rounded-circle mb-3" src="{% static 'blog/img/megi.jpg' %}" alt="..." />
+                            <h5>강유진</h5>
+                            <p class="font-weight-light mb-0">멋쟁이 사자처럼 9기</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                            <img class="img-fluid rounded-circle mb-3" src="{% static 'blog/img/bart.jpg' %}" alt="..." />
+                            <h5>정이수</h5>
+                            <p class="font-weight-light mb-0">멋쟁이 사자처럼 9기
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Call to Action-->
+        <section class="call-to-action text-white text-center">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-9 mx-auto"><h2 class="mb-4">작품/ 전시회/ 기업 홍보 문의하러 가기</h2></div>
+                    <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+                        <form>
+                            <div class="form-row">
+                               <a class="btn btn-block btn-lg btn-primary" href="https://mail.google.com/mail/u/0/#inbox">ᴜɴᴅᴇʀᴛʜᴇs99@ɢᴍᴀɪʟ.ᴄᴏᴍ</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        </div>
+        {% endblock %}
+        <!-- Footer-->
+        <!-- Bootstrap core JS-->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>

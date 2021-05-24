@@ -1,0 +1,26 @@
+<!--글 수정 페이지-->
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block write %}
+
+
+<section class="writeP">
+    <form action="{% url 'update' blog.id %}" method="POST">
+        {% csrf_token %}
+        <p>
+            𝑻𝒊𝒕𝒍𝒆: 
+        </p>
+        <input type="text" name="title" value="{{blog.title}}" style="width: 400px;">
+        <p>
+            𝑊𝑟𝑖𝑡𝑒𝑟: 
+        </p>
+        <input type="text" name="writer" value="{{blog.writer}}">
+        <p>
+            𝑇𝑒𝑥𝑡
+        </p>
+        <textarea name="body" cols="100" rows="20">{{blog.body}}</textarea>
+    </br>
+            <button class="btnMe" type="submit">UPLOAD</button>
+    </form>
+</section>
+{% endblock %}

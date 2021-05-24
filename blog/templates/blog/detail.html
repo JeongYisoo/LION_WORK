@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+{% block write %}
+{% load static %}
+<section class="coverup">
+    <div class="writeP">
+    <div class="container contain">
+            <div> 
+                <h2 class="section-heading">{{blog.title}}</h2>
+                <p class="little">{{blog.writer}} &ensp;{{blog.pub_date}}</p>
+                <p>{{blog.body}}</p>
+                </div>
+                
+        <a href="{% url 'edit' blog.id %}" class="btnA">수정하기</a>
+        <a href="{% url 'delete' blog.id %}" class="btnA">삭제하기</a>
+    </div>
+</div>
+</section>
+{% endblock %}

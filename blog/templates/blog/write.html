@@ -1,0 +1,29 @@
+<!--글 작성 페이지-->
+{% extends 'blog/base.html' %}
+{% load static %}
+
+<body>
+{% block write %}
+<div class="coverup"></div>
+<section class="writeP">
+    <form action="{% url 'create' %}" method="POST">
+        {% csrf_token %}
+        <p>
+            𝑻𝒊𝒕𝒍𝒆: 
+        </p>
+        <input type="text" name="title" style="width: 400px;">
+        <p>
+            𝑊𝑟𝑖𝑡𝑒𝑟: 
+        </p>
+        <input type="text" name="writer">
+        <p>
+            𝑇𝑒𝑥𝑡
+        </p>
+        <textarea name="body" cols="100" rows="20"></textarea>
+    </br>
+            <button class="btnMe" type="submit">UPLOAD</button>
+        </form>
+</section>
+</div>
+{% endblock %}
+</body>
